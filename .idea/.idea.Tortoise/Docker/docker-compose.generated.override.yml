@@ -1,0 +1,43 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  webapitorti:
+    build:
+      context: "/Users/Nadezhda.Novikovskaya/RiderProjects/Docker Compose Experiment\
+        \ Test"
+      dockerfile: "WebApiTorti/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net6.0/WebApiTorti.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "https://+:443;http://+:80"
+    image: "webapitorti:dev"
+    ports: []
+    volumes:
+    - "/Users/Nadezhda.Novikovskaya/.aspnet/https:/root/.aspnet/https"
+    - "/Users/Nadezhda.Novikovskaya/.microsoft/usersecrets:/root/.microsoft/usersecrets"
+    - "/Users/Nadezhda.Novikovskaya/RiderProjects/Docker Compose Experiment Test/WebApiTorti:/app:rw"
+    working_dir: "/app"
+  webfrontendtorti:
+    build:
+      context: "/Users/Nadezhda.Novikovskaya/RiderProjects/Docker Compose Experiment\
+        \ Test"
+      dockerfile: "WebFrontEndTorti/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net6.0/WebFrontEndTorti.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "https://+:443;http://+:80"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net6.0/WebFrontEndTorti.staticwebassets.runtime.CT.json"
+    image: "webfrontendtorti:dev"
+    ports: []
+    volumes:
+    - "/Users/Nadezhda.Novikovskaya/.aspnet/https:/root/.aspnet/https"
+    - "/Users/Nadezhda.Novikovskaya/.microsoft/usersecrets:/root/.microsoft/usersecrets"
+    - "/Users/Nadezhda.Novikovskaya/RiderProjects/Docker Compose Experiment Test/WebFrontEndTorti:/app:rw"
+    working_dir: "/app"
